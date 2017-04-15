@@ -1,0 +1,42 @@
+.navbar {
+    margin-bottom:0px;
+}
+
+#main {
+    background:url(http://lastbookstorela.com/wp-content/uploads/2014/11/JNmagnifyingglasseslarge.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height:400px;
+    color:white;
+}
+
+#main span {
+    position:absolute;
+    top:20%;
+    left:40%;
+    font-size:30px;
+}
+
+#feature {
+    margin:0 auto;
+    padding-top:50px;
+    width:50%;
+}
+
+
+#feature li {
+     list-style:none;
+    color:#1E90FF;
+}
+
+
+@media only screen and (max-width: 400px) {
+  #main span{
+    font-size:25px;
+    position:absolute;
+    top:30%;
+    left:10%;
+}
+
+}

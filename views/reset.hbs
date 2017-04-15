@@ -1,0 +1,43 @@
+<head>
+<title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/register.css">
+</head>
+
+<h1 align="center">Reset Password</h1>
+ <div id="container"class="container" align="center">
+          {{# if error}}
+   <div class="alert alert-danger">
+    <p> {{error}}</p>
+    </div>
+{{/if}} 
+  {{# if success}}
+  <div class="alert alert-success">
+    <p> {{success}}</p>
+    </div>
+{{/if}} 
+
+{{# if success_msg}}
+  <div class="alert alert-success">
+    <p> {{success_msg}}</p>
+    </div>
+{{/if}} 
+    </div>
+ <div align="center">
+    <form method="post" >
+        <input type="hidden", name="_csrf", value="{{csrfToken}}">  
+    <div class="form-group">
+    <label for="email">Email address:</label> <br>  
+    <input style="color:black" type="email"id="email" name="email" >
+  </div>        
+     <div class="form-group">
+       <label for="password">New password:</label> <br>  
+       <input style="color:black" type="password" name="password" minlength="6"oninvalid="this.setCustomValidity('Password must be at least 6 characters')"
+    oninput="setCustomValidity('')"/>
+     </div>
+     <div class="form-group">
+       <label for="confirm">Confirm password:</label>   <br>  
+       <input style="color:black" type="password" name="confirm"/>
+     </div>
+ <button class="btn btn-success"type='submit'>Reset Password</button>
+</form>
+</div>
