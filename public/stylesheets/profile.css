@@ -1,0 +1,118 @@
+body {
+    background-color: #c8cac2;
+}
+
+.cover {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 3px;
+}
+
+.cover img {
+    width: 128px;
+    height: 161px;
+}
+
+
+#show1, #show2 {
+    display:none;
+}
+
+#show1 a , #show2 a, a {
+    text-decoration: none !important;
+}
+
+#myTrade button, #myReq button, .cover button {
+    display:block;
+    margin:0 auto;
+}
+
+#show2 li, #show1 li {
+    list-style:none;
+    display: inline-block;
+    font-size: 25px;
+    padding:20px;
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+.close {
+    float: right;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.close i {
+    color:red;
+}
+
+.fa-check {
+color:green !important;
+}
+
+figure {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  display: block;
+  max-width: 128px;
+}
+
+.cover button{
+    white-space: pre-line;
+    word-break: break-all;
+}
+
+#delete{
+    float:right;
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.remove {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.rotate{
+    -moz-transition: all 1s linear;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+}
+
+.rotate.down{
+    -moz-transform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    transform:rotate(90deg);
+}
+
+
+@media screen and (max-width: 500px) {
+ .cover {
+     margin:0 auto;
+ }
+}
+
+.btn-default {
+    background-color:#00FA9A;
+}

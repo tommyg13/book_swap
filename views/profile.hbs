@@ -1,30 +1,68 @@
 <head>
     <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css" type="text/css" />
+    <script src="/javascript/error.js"></script>
 </head>
-       <div id="container" class="container">
+
+<div class="container">
+      <button type="button" class="btn btn-success btn-lg" id="myReq" >Your outstanding requests({{numberOfRequests}})</button>
+      <button type="button" class="btn btn-info btn-lg" id="myTrade" >Trade requests for you({{numberOfRequested}})</button>
+       <form method="post" action="/handleReq">
+        <input type="hidden", name="_csrf", value="{{csrfToken}}">
+       <div class="row" id="show1">
+            <ul>
+              {{# each tradeRequests}}
+              <li><a>{{this.book}}<button type="submit"class="close"name="reject" value="{{this.id}}"><i class="fa fa-times"></i></button></a></li>
+              {{/each}}
+          </ul>
+      </div>
+      <div class="row" id="show2">
+          <ul>
+              {{# each requested}}
+              <li><a>{{this.book}}<button type="submit" class="close" name="handleTrades" value="{{this.id}}"><i class="fa fa-check"></i></button><button type="submit" name="reject1" value="{{this.id}}" class="close"><i class="fa fa-times"></i></button></a></li>
+              {{/each}}
+          </ul>
+      </div>
+      </form>
+</div>
+
+<div class="container">
+    <h2>My Books:</h2>
+    <form class="form-inline" method="post" >
+    <input type="hidden", name="_csrf", value="{{csrfToken}}">  
+  <div class="form-group">
+    <label for="image">Image url:</label>
+    <input type="text" class="form-control" id="imageURL" name="imageURL" required>
+  </div>
+  <div class="form-group">
+    <label for="imageName">Book Title:</label>
+    <input type="text" class="form-control" id="imageName" name="imageName" required>
+  </div>
+  <button type="submit" class="btn btn-default">Add</button>
+</form>
+    <hr></hr>
+ <div id="container" class="container">
     <div align="center">
   {{# if error}}
    <div class="alert alert-danger">
     <p> {{error}}</p>
     </div>
 {{/if}} 
-
-{{#if errors}}
-      {{#each errors}}
-        <div class="alert alert-danger"><p>{{msg}}</p> </div>
-      {{/each}}
-{{/if}}
-{{# if success}}
-  <div class="alert alert-success">
-    <p> {{success}}</p>
-    </div>
-{{/if}} 
-
-{{# if success_msg}}
-  <div class="alert alert-success">
-    <p> {{success_msg}}</p>
-    </div>
-{{/if}} 
 </div>
 </div>
-<h2>Home</h2>
+    <form method="post">
+    <input type="hidden", name="_csrf", value="{{csrfToken}}">
+    {{#if books}}
+    {{# each books}}
+    <div class="cover text-center">
+        <figure><button id="delete" type="submit" name="del" value="{{this._id}}"><i class="fa fa-times fa-lg rotate" style="color:red;" aria-hidden="true"></i></button>
+        <img src="{{this.url}}" onerror="imgError(this)" alt="{{this.title}}"></i>
+         <a><figcaption>{{this.title}}</figcaption></a>
+        </figure>
+    </div>
+        {{/each}}
+        {{else}}
+        <span>You haven't added any book yet</span>
+    {{/if}}
+      </form>
+</div>

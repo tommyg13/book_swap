@@ -1,0 +1,21 @@
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css" type="text/css" />
+</head>
+
+<div class="container">
+    <h2 align="center">Here you can watch the status of your requests</h2>
+       <hr />
+      <form method="post">
+       <input type="hidden", name="_csrf", value="{{csrfToken}}">            
+       {{#if messages}}
+       {{# each messages}}
+     <span>{{this}}<br/><hr/>
+     {{/each}}
+     <button class="btn btn-danger">Delete all</button>
+     {{else}}
+     <span>Your inbox is empty</span><br/>
+     <hr />
+     {{/if}}
+     </form>
+</div>

@@ -11,7 +11,9 @@ module.exports.User = mongoose.model('User', new Schema({
   city:         { type: String, required: '{PATH} is required.' },
   email:        { type: String, required: '{PATH} is required.',unique: true },
   password:     { type: String,  min: [6, 'Password must be at least 6 characters'], required: '{PATH} is required.' },
-  isAuth:       {type:Boolean, default:false},
+  requests:     Array,
+  requested:    Array,
+  messages:     Array,
   resetPasswordToken: String,
   resetPasswordExpires: Date
 }));

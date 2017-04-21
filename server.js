@@ -56,7 +56,7 @@ app.use(session({
     saveUninitialized: true,
     httpOnly:true,
     duration: 30 * 60 * 1000,
-    activeDuration: 5 * 60 * 1000,
+    activeDuration: 7 * 60 * 1000,
   }));
   
 /* config csurf */
@@ -109,7 +109,6 @@ app.use(middleware.simpleAuth);
 app.use(require('./routes/index'));
 app.use(require("./routes/users"));
 
-  
 // catch 400 and handle error
 app.use((req,res,next)=>{
 	const err = new Error("Not Found");

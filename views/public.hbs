@@ -1,0 +1,17 @@
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/profile.css" type="text/css" />
+      <script src="/javascript/error.js"></script>
+</head>
+<div class="container">
+    <h2>All Books:</h2>
+    <hr></hr>
+    {{# each books}}
+    <div class="cover">
+        <figure>
+        <img src="{{this.url}}" onerror="imgError(this)"  alt="{{this.title}}">
+         <a align="center"><figcaption >{{this.title}}</figcaption></a>
+        </figure>
+    </div>
+    {{/each}}
+</div>
